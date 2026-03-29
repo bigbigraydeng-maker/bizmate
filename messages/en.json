@@ -1,5 +1,86 @@
 {
+  "metadata": {
+    "title": "BizMate — AI partner for NZ Chinese business owners",
+    "description": "Virtual COO: tax, compliance, hiring, flights, and local life tools."
+  },
   "common": {
-    "appName": "BizMate"
+    "appName": "BizMate",
+    "freePhase": "All features free for the first 6 months"
+  },
+  "HomePage": {
+    "headline": "BizMate — AI business partner for Chinese owners in New Zealand",
+    "tagline": "Virtual COO: save people, time, and money for owners; make life easier for the Chinese community in NZ.",
+    "positioningPaid": "Paid tier: business assistant for Chinese owners (SaaS, NZD $49–149/mo)",
+    "positioningFree": "Free tier: lifestyle assistant and acquisition engine",
+    "ctaBrowse": "Explore features",
+    "localeHint": "Chinese is default; use /en for English"
+  },
+  "product": {
+    "oneLiner": "In one line: save people, time, and money for owners; make life in NZ easier for Chinese users."
+  },
+  "audiences": {
+    "primary": "Primary: NZ Chinese SME owners (revenue < NZD 10M)",
+    "secondary": "Secondary: job seekers, students, new migrants",
+    "tertiary": "Tertiary: English-speaking SME owners",
+    "quaternary": "Quaternary: accountants and bookkeepers (as a tool)"
+  },
+  "painBusiness": {
+    "title": "Business pain points (paid tier)",
+    "p1": "Owners wear every hat — labour is costly ($23.15/hr + KiwiSaver + ACC), so owners cover accounting, HR, marketing, support, and IT",
+    "p2": "Hiring and people management are hard — skill shortages, tighter visas, strong employee protections, complex exits",
+    "p3": "Marketing and growth are weak — Google Ads/SEO/social are hard; agencies are expensive; bilingual content is difficult",
+    "p4": "Cash flow is existential — long receivables, seasonality, weak forecasting",
+    "p5": "Tax compliance is complex — GST/PAYE/provisional deadlines are easy to miss",
+    "p6": "Employment law is unfamiliar — Holidays Act, KiwiSaver duties, personal grievance risk",
+    "p7": "Isolation in decisions — weak peer networks, unclear benchmarks, language barriers"
+  },
+  "painLife": {
+    "title": "Life pain points (free tier)",
+    "p8": "Finding a Chinese-speaking GP — who speaks Mandarin and accepts new patients",
+    "p9": "Pricey return flights — when to buy",
+    "p10": "Fragmented job info — scattered across WeChat groups, forums, Seek",
+    "p11": "Opaque import costs — end-to-end landed cost from China is unclear",
+    "p12": "Scattered tutoring info — no single hub for Chinese community education"
+  },
+  "mvp": {
+    "title": "MVP (Phase 1) core features",
+    "aiChat": "AI chat: bilingual Q&A on NZ rules with RAG; citations and disclaimer on every answer",
+    "aiChatTier": "Free: 10 chats/mo; Pro: unlimited",
+    "taxCalc": "NZ tax calculators: GST, PAYE, KiwiSaver — deterministic rules, not LLM guesses",
+    "complianceCal": "Compliance calendar from GST cycle and balance date; email reminders (Pro)",
+    "findGp": "Find a GP: Healthpoint data; filter by distance, language, accepting patients",
+    "userSystem": "Accounts: email + Google sign-in; company onboarding",
+    "landing": "Landing: bilingual marketing and pricing pages",
+    "stripeNote": "Subscriptions & Stripe: free for the first 6 months; payment deferred"
+  },
+  "architecture": {
+    "layer1Title": "Layer 1: hard-coded rules engine",
+    "layer1Body": "GST, PAYE, KiwiSaver, ACC, Holidays Act, minimum wage, compliance dates — all deterministic code.",
+    "layer2Title": "Layer 2: knowledge graph + RAG",
+    "layer2Body": "Each item has source URL, effective date, applicability, last verified; IRD and official sources.",
+    "layer3Title": "Layer 3: local system integrations",
+    "layer3Body": "Xero/MYOB, Healthpoint, Skyscanner, Companies Office, etc. (phased)."
+  },
+  "compliance": {
+    "disclaimerTitle": "Disclaimer",
+    "disclaimerBody": "Information only — not legal, tax, or accounting advice.",
+    "privacy": "NZ Privacy Act 2020; users may request deletion.",
+    "dataResidency": "Data hosted in AU/NZ (e.g. Supabase Sydney)."
+  },
+  "pricing": {
+    "title": "Pricing (reference)",
+    "free": "Free: $0 — limited AI, calculators, GP finder, flight alerts, jobs",
+    "pro": "Pro: $49/mo — unlimited AI, compliance calendar, docs, integrations, job posts, marketing assistant",
+    "enterprise": "Enterprise: $149/mo — Pro plus multi-entity, document review, accountant workflows, industry packs"
+  },
+  "nav": {
+    "chat": "AI chat",
+    "calculators": "Calculators",
+    "calendar": "Compliance",
+    "gp": "Find a GP",
+    "flights": "Flights",
+    "jobs": "Jobs",
+    "settings": "Settings",
+    "onboarding": "Onboarding"
   }
 }

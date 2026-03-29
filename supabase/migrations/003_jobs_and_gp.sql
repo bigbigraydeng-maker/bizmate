@@ -1,1 +1,0 @@
--- Jobs, GP, flights — full SQL in Task 1.3

@@ -1,3 +1,7 @@
-/** next-intl routing — Task 1.2 */
-export const locales = ["zh", "en"] as const;
-export type Locale = (typeof locales)[number];
+import { defineRouting } from "next-intl/routing";
+
+export const routing = defineRouting({
+  locales: ["zh", "en"],
+  defaultLocale: "zh",
+  localePrefix: "as-needed",
+});

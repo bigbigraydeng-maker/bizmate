@@ -1,5 +1,86 @@
 {
+  "metadata": {
+    "title": "BizMate — 新西兰华人老板的 AI 商业伙伴",
+    "description": "虚拟 COO：税务、合规、招聘、机票与本地生活助手。"
+  },
   "common": {
-    "appName": "BizMate"
+    "appName": "BizMate",
+    "freePhase": "前 6 个月全功能免费"
+  },
+  "HomePage": {
+    "headline": "BizMate — 新西兰华人老板的 AI 商业伙伴",
+    "tagline": "虚拟 COO：帮老板省人、省时间、省钱；帮华人在新西兰生活得更方便。",
+    "positioningPaid": "付费层：华人老板商业助手（SaaS，$49–149 NZD/月）",
+    "positioningFree": "免费层：华人生活助手（获客引擎）",
+    "ctaBrowse": "浏览功能",
+    "localeHint": "默认中文；访问 /en 切换英文"
+  },
+  "product": {
+    "oneLiner": "一句话：帮老板省人、省时间、省钱；帮华人在 NZ 生活得更方便。"
+  },
+  "audiences": {
+    "primary": "主要用户：新西兰华人中小企业主（年营收 < NZD 1000 万）",
+    "secondary": "次要用户：求职者、留学生、新移民",
+    "tertiary": "第三用户：本地英语母语 SME 老板",
+    "quaternary": "第四用户：会计师、bookkeeper（作为工具辅助）"
+  },
+  "painBusiness": {
+    "title": "商业痛点（付费层）",
+    "p1": "老板就是全能打工人 — 人工贵（$23.15/hr + KiwiSaver 3% + ACC），请不起人，老板身兼会计/HR/营销/客服/IT",
+    "p2": "招人难、管人更难 — 技能工人短缺、签证收紧、劳动法极度保护员工、辞退流程复杂",
+    "p3": "不会营销、不懂获客 — 不会 Google Ads/SEO/社媒、请 agency 贵、华人英文内容创作难",
+    "p4": "现金流是生死线 — 应收账款周期长、季节性波动、不会做现金流预测",
+    "p5": "税务合规复杂 — GST/PAYE/预缴税截止日容易遗漏、计算复杂",
+    "p6": "雇佣法规不熟悉 — Holiday Act、KiwiSaver 义务、Personal Grievance 风险",
+    "p7": "信息孤岛、决策孤独 — 没有 peer network、不知道行业 benchmark、语言隔阂"
+  },
+  "painLife": {
+    "title": "生活痛点（免费层）",
+    "p8": "找中文医生难 — 不知道哪个 GP 说中文、是否接新病人",
+    "p9": "回国机票贵 — 不知道什么时候买最便宜",
+    "p10": "找工作信息碎片化 — 招聘信息散落在微信群、天维网、Seek",
+    "p11": "进出口信息不透明 — 从中国进货的全链路成本算不清",
+    "p12": "培训补习信息零散 — 没有集中的华人教育资源平台"
+  },
+  "mvp": {
+    "title": "MVP（Phase 1）核心功能",
+    "aiChat": "AI 对话引擎：中英双语，基于新西兰法规知识库的 RAG 问答；回答附来源引用与免责声明",
+    "aiChatTier": "免费：10 次/月；Pro：无限",
+    "taxCalc": "新西兰税务计算器：GST、PAYE、KiwiSaver；硬编码规则引擎，不依赖 LLM",
+    "complianceCal": "合规日历：按企业 GST 周期与 Balance Date 生成截止日；邮件提醒（Pro）",
+    "findGp": "中文找 GP：Healthpoint 数据，按距离/语言/是否接新病人筛选",
+    "userSystem": "用户系统：Email + Google 登录；企业 Onboarding",
+    "landing": "落地页：中英营销页 + 定价页",
+    "stripeNote": "订阅与 Stripe：前 6 个月全免费，暂不启用支付"
+  },
+  "architecture": {
+    "layer1Title": "第一层：硬逻辑规则引擎",
+    "layer1Body": "GST、PAYE、KiwiSaver、ACC、Holiday Act、最低工资、合规截止日 — 全部确定性代码，不依赖 LLM。",
+    "layer2Title": "第二层：本地知识图谱 + RAG",
+    "layer2Body": "每条知识含来源 URL、生效日期、适用类型、最后验证日期；IRD 等官方来源。",
+    "layer3Title": "第三层：本地系统集成",
+    "layer3Body": "Xero/MYOB、Healthpoint、Skyscanner、Companies Office 等（分阶段上线）。"
+  },
+  "compliance": {
+    "disclaimerTitle": "免责声明",
+    "disclaimerBody": "本工具仅供参考，不构成专业法律/税务/会计建议。",
+    "privacy": "遵守新西兰 Privacy Act 2020；数据可请求删除。",
+    "dataResidency": "数据存储在 AU/NZ 区域（如 Supabase Sydney）。"
+  },
+  "pricing": {
+    "title": "定价（参考）",
+    "free": "Free：$0 — 基础 AI 次数、计算器、找 GP、机票提醒、找工作",
+    "pro": "Pro：$49/月 — 无限 AI、合规日历、文档、集成、招聘发布、营销助手",
+    "enterprise": "Enterprise：$149/月 — Pro + 多企业、文档审查、会计师协作、行业合规包"
+  },
+  "nav": {
+    "chat": "AI 对话",
+    "calculators": "计算器",
+    "calendar": "合规日历",
+    "gp": "找 GP",
+    "flights": "机票监控",
+    "jobs": "招聘",
+    "settings": "设置",
+    "onboarding": "企业信息"
   }
 }

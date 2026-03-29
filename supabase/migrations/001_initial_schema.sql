@@ -1,1 +1,0 @@
--- BizMate core schema — full SQL in Task 1.3 (see docs/02-TECH-ARCHITECTURE.md)

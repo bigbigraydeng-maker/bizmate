@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gen:types": "supabase gen types typescript --linked > src/lib/supabase/types.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
