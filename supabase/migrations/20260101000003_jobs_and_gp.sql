@@ -3,7 +3,7 @@
 -- ===========================================
 
 create table public.job_listings (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   company_id uuid references public.companies(id) on delete cascade,
   poster_id uuid not null references public.profiles(id) on delete cascade,
   title text not null,
@@ -41,7 +41,7 @@ create policy "Posters can manage own jobs"
 -- ===========================================
 
 create table public.gp_practices (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   name text not null,
   address text not null,
   suburb text,
@@ -77,7 +77,7 @@ create policy "Anyone can view GP practices"
 -- ===========================================
 
 create table public.flight_alerts (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
   origin text not null default 'AKL',
   destination text not null,
@@ -87,7 +87,7 @@ create table public.flight_alerts (
 );
 
 create table public.flight_prices (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   origin text not null,
   destination text not null,
   departure_date date not null,

@@ -4,7 +4,6 @@
 -- ===========================================
 
 -- Enable extensions
-create extension if not exists "uuid-ossp";
 create extension if not exists "vector";
 
 -- ===========================================
@@ -25,7 +24,7 @@ create table public.profiles (
 
 -- Companies
 create table public.companies (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
   name text not null,
   nzbn text,
@@ -50,7 +49,7 @@ create index idx_companies_user_id on public.companies(user_id);
 -- ===========================================
 
 create table public.subscriptions (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
   stripe_customer_id text unique,
   stripe_subscription_id text unique,
@@ -72,7 +71,7 @@ create unique index idx_subscriptions_user_id on public.subscriptions(user_id);
 -- ===========================================
 
 create table public.conversations (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
   company_id uuid references public.companies(id) on delete set null,
   title text not null default 'New conversation',
@@ -83,7 +82,7 @@ create table public.conversations (
 create index idx_conversations_user_id on public.conversations(user_id);
 
 create table public.messages (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   conversation_id uuid not null references public.conversations(id) on delete cascade,
   role text not null check (role in ('user', 'assistant', 'system')),
   content text not null,
@@ -100,7 +99,7 @@ create index idx_messages_conversation_id on public.messages(conversation_id);
 -- ===========================================
 
 create table public.compliance_deadlines (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   company_id uuid not null references public.companies(id) on delete cascade,
   type text not null
     check (type in ('gst', 'paye', 'annual_return', 'provisional_tax', 'fbt', 'acc', 'custom')),
@@ -122,7 +121,7 @@ create index idx_compliance_due_date on public.compliance_deadlines(due_date);
 -- ===========================================
 
 create table public.documents (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   company_id uuid not null references public.companies(id) on delete cascade,
   type text not null,
   title text not null,

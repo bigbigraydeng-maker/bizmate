@@ -3,7 +3,7 @@
 -- ===========================================
 
 create table public.knowledge_documents (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   source text not null,
   source_url text,
   title text not null,
@@ -20,7 +20,7 @@ create table public.knowledge_documents (
 );
 
 create index idx_knowledge_embedding on public.knowledge_documents
-  using ivfflat (embedding vector_cosine_ops) with (lists = 100);
+  using hnsw (embedding vector_cosine_ops);
 
 create index idx_knowledge_source on public.knowledge_documents(source);
 create index idx_knowledge_category on public.knowledge_documents(category);

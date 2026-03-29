@@ -1,7 +1,18 @@
-export default function RegisterPage() {
+import { setRequestLocale } from "next-intl/server";
+
+import { RegisterForm } from "@/components/auth/register-form";
+
+export default async function RegisterPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
-    <main className="p-8">
-      <p className="text-muted-foreground text-sm">Register — Task 1.4</p>
+    <main className="flex w-full flex-col items-center">
+      <RegisterForm />
     </main>
   );
 }

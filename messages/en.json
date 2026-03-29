@@ -81,6 +81,34 @@
     "flights": "Flights",
     "jobs": "Jobs",
     "settings": "Settings",
-    "onboarding": "Onboarding"
+    "onboarding": "Onboarding",
+    "documents": "Documents"
+  },
+  "auth": {
+    "orDivider": "or",
+    "loginTitle": "Sign in",
+    "registerTitle": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "fullName": "Full name (optional)",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signInWithGoogle": "Continue with Google",
+    "noAccount": "No account yet?",
+    "hasAccount": "Already have an account?",
+    "toRegister": "Register",
+    "toLogin": "Sign in",
+    "checkEmail": "Check your email and confirm the link if verification is enabled.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "errorInvalidCredentials": "Invalid email or password.",
+    "errorPasswordMismatch": "Passwords do not match.",
+    "passwordMin": "Password must be at least 8 characters"
+  },
+  "dashboard": {
+    "menu": "Menu",
+    "logout": "Log out",
+    "account": "Account",
+    "defaultPageTitle": "Dashboard"
   }
 }
