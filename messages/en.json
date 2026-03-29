@@ -472,6 +472,12 @@
     "detailSalary": "Salary",
     "detailPosted": "Posted",
     "detailLanguages": "Languages",
-    "detailDescription": "Job Details"
+    "detailDescription": "Job Details",
+    "refresh": "Refresh",
+    "fetching": "Fetching latest jobs from Seek and TradeMe…",
+    "totalJobs": "Found approximately {count} related jobs",
+    "jobsFound": "jobs",
+    "notConfigured": "API not configured",
+    "sourceDisclaimer": "Job listings from Seek and TradeMe. Click to view original listing. BizMate is not responsible for third-party content."
   }
 }

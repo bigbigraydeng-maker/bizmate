@@ -472,6 +472,12 @@
     "detailSalary": "薪资",
     "detailPosted": "发布时间",
     "detailLanguages": "语言要求",
-    "detailDescription": "职位详情"
+    "detailDescription": "职位详情",
+    "refresh": "刷新",
+    "fetching": "正在从 Seek 和 TradeMe 获取最新职位…",
+    "totalJobs": "共找到约 {count} 个相关职位",
+    "jobsFound": "条",
+    "notConfigured": "未配置 API",
+    "sourceDisclaimer": "职位信息来自 Seek 和 TradeMe，点击卡片跳转原始链接。BizMate 不对第三方信息的准确性负责。"
   }
 }
