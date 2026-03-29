@@ -31,7 +31,9 @@ import {
   step4Schema,
   type OnboardingFormValues,
 } from "@/lib/onboarding/schema";
+import { insertComplianceDeadlinesForCompany } from "@/lib/compliance/insert-deadlines";
 import { createClient } from "@/lib/supabase/client";
+import type { CompanyForCompliance } from "@/lib/nz-rules/compliance-dates";
 
 const STEPS = 4;
 
@@ -104,23 +106,43 @@ export function OnboardingWizard() {
     }
 
     const v = parsed.data;
-    const { error } = await supabase.from("companies").insert({
-      user_id: user.id,
-      name: v.name,
-      nzbn: v.nzbn || null,
-      entity_type: v.entity_type,
-      gst_number: v.gst_number || null,
-      gst_filing_frequency: v.gst_filing_frequency,
-      balance_date: v.balance_date,
-      employee_count: v.employee_count,
-      kiwisaver_enrolled: v.kiwisaver_enrolled,
-      industry: v.industry,
-    });
+    const { data: companyRow, error } = await supabase
+      .from("companies")
+      .insert({
+        user_id: user.id,
+        name: v.name,
+        nzbn: v.nzbn || null,
+        entity_type: v.entity_type,
+        gst_number: v.gst_number || null,
+        gst_filing_frequency: v.gst_filing_frequency,
+        balance_date: v.balance_date,
+        employee_count: v.employee_count,
+        kiwisaver_enrolled: v.kiwisaver_enrolled,
+        industry: v.industry,
+      })
+      .select("id, name, gst_filing_frequency, balance_date, created_at, employee_count")
+      .single();
 
     setLoading(false);
-    if (error) {
+    if (error || !companyRow) {
       toast.error(t("errorSave"));
       return;
+    }
+
+    const complianceCompany: CompanyForCompliance = {
+      id: companyRow.id,
+      name: companyRow.name,
+      gst_filing_frequency: companyRow.gst_filing_frequency as CompanyForCompliance["gst_filing_frequency"],
+      balance_date: companyRow.balance_date ?? v.balance_date,
+      created_at: companyRow.created_at,
+      employee_count: companyRow.employee_count ?? 0,
+    };
+    const { error: deadlineErr } = await insertComplianceDeadlinesForCompany(
+      supabase,
+      complianceCompany,
+    );
+    if (deadlineErr) {
+      console.error("[onboarding] compliance deadlines:", deadlineErr);
     }
     toast.success(t("success"));
     router.push("/chat");

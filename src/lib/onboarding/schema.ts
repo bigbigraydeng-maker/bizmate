@@ -33,7 +33,7 @@ export const step1Schema = z.object({
 export const step2Schema = z.object({
   gst_number: z.string().optional(),
   gst_filing_frequency: z.enum(gstFrequencies),
-  balance_date: z.string().min(1),
+  balance_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format (YYYY-MM-DD)"),
 });
 
 export const step3Schema = z.object({

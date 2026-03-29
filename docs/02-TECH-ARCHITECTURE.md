@@ -7,7 +7,7 @@
 | **Frontend** | Next.js 15 (App Router) + TailwindCSS v4 + shadcn/ui | SSR/SEO、组件库成熟 |
 | **i18n** | next-intl | Next.js最成熟的国际化方案 |
 | **Backend API** | Next.js API Routes + Server Actions | 全栈统一，减少复杂度 |
-| **AI/LLM** | Anthropic Claude API (@anthropic-ai/sdk) | 中英双语强、Tool Use |
+| **AI/LLM** | OpenAI GPT-4o (openai SDK) | Chat + Embedding统一、Function Calling |
 | **RAG** | Supabase pgvector + OpenAI text-embedding-3-small | 无需额外向量数据库 |
 | **Database** | Supabase (PostgreSQL + pgvector) | Auth/RLS/Realtime/Vector一站式 |
 | **Auth** | Supabase Auth | Email/Google/WeChat(future) |

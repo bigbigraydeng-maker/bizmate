@@ -607,7 +607,23 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      match_knowledge_documents: {
+        Args: {
+          query_embedding: string;
+          match_count?: number;
+          filter_category?: string | null;
+        };
+        Returns: {
+          id: string;
+          source: string;
+          source_url: string | null;
+          title: string;
+          content: string;
+          content_zh: string | null;
+          category: string | null;
+          similarity: number;
+        }[];
+      };
     }
     Enums: {
       [_ in never]: never

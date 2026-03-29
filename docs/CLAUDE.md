@@ -13,7 +13,7 @@ BizMate is an AI-powered business assistant for New Zealand SME owners, with a f
 - **i18n**: next-intl (Chinese default, English secondary)
 - **Database**: Supabase (PostgreSQL + pgvector for RAG)
 - **Auth**: Supabase Auth (Email + Google)
-- **AI**: Anthropic Claude API with Tool Use
+- **AI**: OpenAI GPT-4o with Function Calling
 - **Payment**: Stripe (NZD subscriptions)
 - **Deployment**: Vercel (Sydney region)
 

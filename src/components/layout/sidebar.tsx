@@ -5,6 +5,8 @@ import { usePathname } from "@/i18n/navigation";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+import { MessageCircle } from "lucide-react";
+
 import { dashboardNav } from "./nav-config";
 
 type SidebarProps = {
@@ -54,6 +56,17 @@ export function Sidebar({ className, onNavigate }: SidebarProps) {
           );
         })}
       </nav>
+      <div className="border-t border-border p-2">
+        <a
+          href="/wechat"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        >
+          <MessageCircle className="size-3.5 shrink-0" aria-hidden />
+          {t("followWechat")}
+        </a>
+      </div>
     </aside>
   );
 }
