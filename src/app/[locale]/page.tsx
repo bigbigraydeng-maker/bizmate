@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { Navbar } from "@/components/marketing/navbar";
 import { Hero } from "@/components/marketing/hero";
 import { PainPoints } from "@/components/marketing/pain-points";
 import { Features } from "@/components/marketing/features";
@@ -30,6 +31,7 @@ export default async function LandingPage({
 
   return (
     <main className="min-h-screen">
+      <Navbar />
       <Hero />
       <PainPoints />
       <Features />
