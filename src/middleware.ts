@@ -3,9 +3,12 @@ import createIntlMiddleware from "next-intl/middleware";
 import { type NextRequest, NextResponse } from "next/server";
 
 import {
+  chatPathForLocale,
   getLocaleFromPath,
+  isOnboardingPath,
   isProtectedDashboardPath,
   loginPathForLocale,
+  onboardingPathForLocale,
 } from "@/lib/auth/path-utils";
 import { routing } from "./i18n/routing";
 
@@ -35,11 +38,37 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const pathname = request.nextUrl.pathname;
+  const locale = getLocaleFromPath(pathname);
 
   if (isProtectedDashboardPath(pathname) && !user) {
-    const locale = getLocaleFromPath(pathname);
     const login = loginPathForLocale(locale);
     return NextResponse.redirect(new URL(login, request.url));
+  }
+
+  if (user) {
+    const { data: companies } = await supabase
+      .from("companies")
+      .select("id")
+      .eq("user_id", user.id)
+      .limit(1);
+
+    const hasCompany = Boolean(companies?.length);
+
+    if (
+      !hasCompany &&
+      isProtectedDashboardPath(pathname) &&
+      !isOnboardingPath(pathname)
+    ) {
+      return NextResponse.redirect(
+        new URL(onboardingPathForLocale(locale), request.url),
+      );
+    }
+
+    if (hasCompany && isOnboardingPath(pathname)) {
+      return NextResponse.redirect(
+        new URL(chatPathForLocale(locale), request.url),
+      );
+    }
   }
 
   return response;

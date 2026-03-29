@@ -26,6 +26,7 @@ export type Database = {
           gst_number: string | null
           id: string
           industry: string | null
+          kiwisaver_enrolled: boolean | null
           name: string
           nzbn: string | null
           updated_at: string
@@ -42,6 +43,7 @@ export type Database = {
           gst_number?: string | null
           id?: string
           industry?: string | null
+          kiwisaver_enrolled?: boolean | null
           name: string
           nzbn?: string | null
           updated_at?: string
@@ -58,6 +60,7 @@ export type Database = {
           gst_number?: string | null
           id?: string
           industry?: string | null
+          kiwisaver_enrolled?: boolean | null
           name?: string
           nzbn?: string | null
           updated_at?: string

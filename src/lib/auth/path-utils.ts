@@ -32,6 +32,20 @@ export function loginPathForLocale(locale: string): string {
   return locale === routing.defaultLocale ? "/login" : `/${locale}/login`;
 }
 
+export function onboardingPathForLocale(locale: string): string {
+  return locale === routing.defaultLocale
+    ? "/onboarding"
+    : `/${locale}/onboarding`;
+}
+
+export function chatPathForLocale(locale: string): string {
+  return locale === routing.defaultLocale ? "/chat" : `/${locale}/chat`;
+}
+
+export function isOnboardingPath(pathname: string): boolean {
+  return stripLocalePrefix(pathname).startsWith("/onboarding");
+}
+
 /** True when route is under (dashboard) and should require auth */
 export function isProtectedDashboardPath(pathname: string): boolean {
   const p = stripLocalePrefix(pathname);
