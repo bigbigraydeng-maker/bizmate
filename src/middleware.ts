@@ -40,36 +40,38 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const locale = getLocaleFromPath(pathname);
 
-  if (isProtectedDashboardPath(pathname) && !user) {
-    const login = loginPathForLocale(locale);
-    return NextResponse.redirect(new URL(login, request.url));
-  }
+  // TODO: re-enable auth guard after testing
+  // if (isProtectedDashboardPath(pathname) && !user) {
+  //   const login = loginPathForLocale(locale);
+  //   return NextResponse.redirect(new URL(login, request.url));
+  // }
 
-  if (user) {
-    const { data: companies } = await supabase
-      .from("companies")
-      .select("id")
-      .eq("user_id", user.id)
-      .limit(1);
-
-    const hasCompany = Boolean(companies?.length);
-
-    if (
-      !hasCompany &&
-      isProtectedDashboardPath(pathname) &&
-      !isOnboardingPath(pathname)
-    ) {
-      return NextResponse.redirect(
-        new URL(onboardingPathForLocale(locale), request.url),
-      );
-    }
-
-    if (hasCompany && isOnboardingPath(pathname)) {
-      return NextResponse.redirect(
-        new URL(chatPathForLocale(locale), request.url),
-      );
-    }
-  }
+  // TODO: re-enable onboarding redirect after testing
+  // if (user) {
+  //   const { data: companies } = await supabase
+  //     .from("companies")
+  //     .select("id")
+  //     .eq("user_id", user.id)
+  //     .limit(1);
+  //
+  //   const hasCompany = Boolean(companies?.length);
+  //
+  //   if (
+  //     !hasCompany &&
+  //     isProtectedDashboardPath(pathname) &&
+  //     !isOnboardingPath(pathname)
+  //   ) {
+  //     return NextResponse.redirect(
+  //       new URL(onboardingPathForLocale(locale), request.url),
+  //     );
+  //   }
+  //
+  //   if (hasCompany && isOnboardingPath(pathname)) {
+  //     return NextResponse.redirect(
+  //       new URL(chatPathForLocale(locale), request.url),
+  //     );
+  //   }
+  // }
 
   return response;
 }
